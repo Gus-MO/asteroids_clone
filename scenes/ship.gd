@@ -11,19 +11,17 @@ signal ship_hit(lifes)
 
 @export var rotationSpeed = PI
 @export var speed = 50 # How fast the player will move (pixels/sec).
+@export var lifes = 2
 
-var screen_size # Size of the game window.
 var velocity = Vector2.UP
 var rotated_velocity = Vector2.UP
 var rotation_value: float
 var VEL_UP_LIM = 200
-var lifes = 2
 
 var imune = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_viewport_rect().size
 	CREATION_TIMER.start()
 	modulate.a = 0.5
 	#hide()

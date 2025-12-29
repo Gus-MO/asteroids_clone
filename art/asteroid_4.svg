@@ -2,14 +2,14 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="119.183"
-   height="119.183"
-   viewBox="0 0 31.533847 31.533828"
+   width="814.48999"
+   height="307.66"
+   viewBox="0 0 215.50057 81.401693"
    version="1.1"
    id="svg1"
    sodipodi:docname="asteroid_4.svg"
    inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
-   inkscape:export-filename="asteroid2.png"
+   inkscape:export-filename="ship_fly2.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
-     inkscape:zoom="2.0935045"
-     inkscape:cx="113.68497"
-     inkscape:cy="93.384084"
+     inkscape:zoom="0.74016562"
+     inkscape:cx="110.78602"
+     inkscape:cy="174.96084"
      inkscape:window-width="2560"
      inkscape:window-height="1377"
      inkscape:window-x="1358"
@@ -37,32 +37,32 @@
      inkscape:current-layer="layer1"
      showguides="true">
     <sodipodi:guide
-       position="81.680769,27.158406"
+       position="81.680772,77.29087"
        orientation="1,0"
        id="guide2"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="142.98608,17.328095"
+       position="142.98608,67.460559"
        orientation="1,0"
        id="guide4"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="184.27331,-4.1198018"
+       position="184.27331,46.012661"
        orientation="1,0"
        id="guide5"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="100.62645,-30.036012"
+       position="100.62645,20.09645"
        orientation="0,-1"
        id="guide6"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="165.32764,-10.017974"
+       position="165.32765,40.114489"
        orientation="0,-1"
        id="guide7"
        inkscape:locked="false" />
     <sodipodi:guide
-       position="192.67374,-0.18768713"
+       position="192.67374,49.944776"
        orientation="0,-1"
        id="guide8"
        inkscape:locked="false" />
@@ -75,22 +75,22 @@
      id="layer1">
     <path
        style="fill:none;stroke:#ffffff;stroke-width:1.32292;stroke-dasharray:none"
-       d="M -80.789735,27.524811 -55.052249,0.89366271 -23.595323,21.447905 -1.0750208,15.192266 -13.586301,48.61525 -1.2537548,80.250911 -27.348705,75.067668 -53.443657,80.787108 -80.789735,47.90032 Z"
+       d="M 0.89366271,27.524811 26.631149,0.89366271 58.088075,21.447905 80.608377,15.192266 68.097097,48.61525 80.429643,80.250911 54.334693,75.067668 28.239741,80.787108 0.89366271,47.90032 Z"
        id="path1"
        sodipodi:nodetypes="cccccccccc" />
     <path
        style="fill:none;stroke:#ffffff;stroke-width:1.32292;stroke-dasharray:none"
-       d="M -60.187156,1.2511277 -38.02432,16.085929 -21.75966,1.5192266 -1.4735096,40.751019 -23.90445,30.384531 l 3.93212,29.848334 h -40.214827 z"
+       d="M 82.574433,1.2511277 104.73727,16.085929 121.00193,1.5192266 141.28808,40.751019 118.85714,30.384531 122.78926,60.232865 H 82.574432 Z"
        id="path2"
        sodipodi:nodetypes="cccccccc" />
     <path
        style="fill:none;stroke:#ffffff;stroke-width:1.32292;stroke-dasharray:none"
-       d="m -32.036018,1.0723953 -7.05994,16.2646617 13.315579,1.966057 -6.791839,14.834802 -6.0769,5.719441 22.877759,-5.004511 6.9705705,5.183243 L -0.75783051,21.09044 -15.771359,1.0723952 Z"
+       d="m 151.92266,1.0723953 -7.05994,16.2646617 13.31558,1.966057 -6.79184,14.834802 -6.0769,5.719441 22.87776,-5.004511 6.97057,5.183243 8.04296,-18.945649 -15.01353,-20.0180448 z"
        id="path3"
        sodipodi:nodetypes="cccccccccc" />
     <path
        style="fill:none;stroke:#ffffff;stroke-width:1.32292;stroke-dasharray:none"
-       d="M 1.9231595,9.6515573 12.110919,12.153813 11.664079,1.4298603 30.520369,10.54522 27.303179,30.563265 11.217249,30.741996 Z"
+       d="m 185.88184,9.6515573 10.18776,2.5022557 -0.44684,-10.7239527 18.85629,9.1153597 -3.21719,20.018045 -16.08593,0.178731 z"
        id="path4"
        sodipodi:nodetypes="ccccccc" />
   </g>

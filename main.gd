@@ -5,35 +5,54 @@ extends Node2D
 @onready var HUD_SCENE = preload("res://scenes/hud.tscn")
 
 @export var ASTEROIDS_QUANT = 4
+@export var starting_lifes = 2
 
-var screen_size # Size of the game window.
+var _game_running = false
 var score: int
 var hud
+var asteroids_array
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	screen_size = get_viewport_rect().size
-	
-	hud = HUD_SCENE.instantiate()
-	score = 0
-	hud.update_score(score)
-	add_child(hud)
-	
-	new_game()
+	create_asteroids(4, Vector2.ZERO, 4)
+	create_hud(0)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_pressed("shoot") and not _game_running:
+		new_game()
+		_game_running = true
 
 
 func new_game():
-	create_ship(2)
+	create_ship(starting_lifes)
+	
+	get_tree().call_group("Asteroids", "queue_free")
+	
 	create_asteroids(4, Vector2.ZERO, 4)
+	create_hud(starting_lifes)
+	hud.start_game()
+
+func game_over():
+	print("game_over")
+	hud.end_game()
+
+func create_hud(lifes):
+	if hud == null:
+		hud = HUD_SCENE.instantiate()
+	else:
+		remove_child(hud)
+	score = 0
+	hud.update_score(score)
+	hud.update_lifes(lifes)
+	add_child(hud)
 
 func create_ship(lifes: int):
 	var ship = SHIP.instantiate()
-	ship.position = screen_size/2
+	ship.position = global_funcs.screen_size/2
 	#ship.start(screen_size/2)
 	ship.lifes = lifes
 	ship.ship_hit.connect(_on_ship_hit)
@@ -41,11 +60,16 @@ func create_ship(lifes: int):
 	add_child(ship)
 	
 func _on_ship_hit(old_lifes):
+	print(old_lifes)
+	hud.update_lifes(old_lifes - 1)
 	if old_lifes > 0:
 		create_ship(old_lifes-1)
+	else:
+		_game_running = false
+		game_over()
 
 func create_asteroids(quant:int, pos: Vector2, stage:int):
-	var asteroids = Array()
+	asteroids_array = Array()
 	for i in range(quant):
 		var asteroid = ASTEROID_SCENE.instantiate()
 		
@@ -55,7 +79,7 @@ func create_asteroids(quant:int, pos: Vector2, stage:int):
 		asteroid.asteroid_hit.connect(_on_asteroid_hit)
 		add_child(asteroid)
 		
-		asteroids.append(asteroid)
+		asteroids_array.append(asteroid)
 
 func _on_asteroid_hit(old_pos, old_stage):
 	if old_stage == 1:
@@ -73,14 +97,14 @@ func set_asteroid_location(pos):
 	var y_position: float
 	
 	while true:
-		x_position = randf() * screen_size.x
-		if x_position > (screen_size.x/2 - 80) and x_position < (screen_size.x/2 + 80):
+		x_position = randf() * global_funcs.screen_size.x
+		if x_position > (global_funcs.screen_size.x/2 - 80) and x_position < (global_funcs.screen_size.x/2 + 80):
 			continue
 		else: break
 		
 	while true:
-		y_position = randf() * screen_size.y
-		if y_position > (screen_size.y/2 - 80) and y_position < (screen_size.y/2 + 80):
+		y_position = randf() * global_funcs.screen_size.y
+		if y_position > (global_funcs.screen_size.y/2 - 80) and y_position < (global_funcs.screen_size.y/2 + 80):
 			continue
 		else: break
 		
