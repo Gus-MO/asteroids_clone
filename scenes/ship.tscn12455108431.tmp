@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://ceyjua8yqm2v6"]
+
+[ext_resource type="Script" uid="uid://clu4cc4f5dwh6" path="res://scenes/ship.gd" id="1_gudjc"]
+[ext_resource type="Texture2D" uid="uid://84lkoe0mmsa5" path="res://art/ship_fly1.png" id="1_tfsc7"]
+[ext_resource type="Texture2D" uid="uid://d1aeltkmxamlk" path="res://art/ship_fly2.png" id="2_gudjc"]
+[ext_resource type="Texture2D" uid="uid://cf13fkfhkbpm" path="res://art/ship_fly3.png" id="3_7j21i"]
+[ext_resource type="Texture2D" uid="uid://b2hm4fy510bd8" path="res://art/ship_static.png" id="4_3m36u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lamp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tfsc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gudjc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7j21i")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3m36u")
+}],
+"loop": true,
+"name": &"static",
+"speed": 5.0
+}]
+
+[node name="Ship" type="Area2D"]
+scale = Vector2(0.45, 0.45)
+script = ExtResource("1_gudjc")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_4lamp")
+animation = &"fly"
+frame_progress = 0.9848448
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-38, 26, 38, 26, 1, -61)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(1, -61)

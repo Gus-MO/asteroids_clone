@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://7ygmy5j4e3kq"]
+
+[ext_resource type="Texture2D" uid="uid://b8j8jhppywog8" path="res://art/asteroid1.png" id="1_pnq5b"]
+[ext_resource type="Script" uid="uid://dgf8u7i12c01p" path="res://scenes/asteroid.gd" id="1_pwrvu"]
+[ext_resource type="Texture2D" uid="uid://dfp4vn5i8b8d5" path="res://art/asteroid2.png" id="2_pwrvu"]
+[ext_resource type="Texture2D" uid="uid://eknm0ated68r" path="res://art/asteroid3.png" id="3_0jovh"]
+[ext_resource type="Texture2D" uid="uid://bjcnbrrevpm0n" path="res://art/asteroid4.png" id="4_kkwpv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pwrvu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pnq5b")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pwrvu")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0jovh")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kkwpv")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x1lus"]
+radius = 51.159397
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_71tyo"]
+radius = 68.92472
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jm418"]
+radius = 108.91157
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_osw8w"]
+radius = 137.77777
+
+[node name="Asteroid" type="Area2D" groups=["Asteroids"]]
+scale = Vector2(0.45, 0.45)
+collision_layer = 2
+script = ExtResource("1_pwrvu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+sprite_frames = SubResource("SpriteFrames_pwrvu")
+animation = &"1"
+
+[node name="Asteroid1" type="CollisionShape2D" parent="."]
+position = Vector2(-11.1111145, -8.888893)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_x1lus")
+disabled = true
+
+[node name="Asteroid2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-11.1111145, 6.666668)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_71tyo")
+disabled = true
+
+[node name="Asteroid3" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-17.777786, 0)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_jm418")
+disabled = true
+
+[node name="Asteroid4" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(13.333341, 11.111119)
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("CircleShape2D_osw8w")
+
+[node name="CreationTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="CreationTimer" to="." method="_on_creation_time_timeout"]
